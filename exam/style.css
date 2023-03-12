@@ -1,0 +1,145 @@
+.log img{
+    width: 200px;
+    height: 300px;
+    border-radius: 20%;
+}
+
+
+.backgr{
+    background-color: #f2e2a7;
+    margin-top: 0;
+    margin-bottom: 0;
+
+
+}
+
+.rounded h5{
+    color:#f2e2a7;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #26111a;
+    border-radius: 30px;
+    width: 250px;
+    height: 100px;
+    text-align: center;
+}
+
+
+h2{
+    border-bottom: solid 2px #26111a;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.us h5 {
+    padding: 25px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: #26111a;
+    color:#f2e2a7;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
+.modul1 img{
+    width: 600px;
+    height: 600px;
+    border-radius: 3%;
+    margin-right: 100px;
+
+}
+.modul2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 30px;
+    
+}
+
+.massage p {
+    font-size: 30px;
+    display: inline;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.massage {
+    background: rgb(111, 192, 104);
+    color: rgb(57, 95, 52);
+    height: 50px;
+    border-radius: 20px;
+}
+nav{
+    font-size: 30px;
+    margin-bottom: 20px;
+    background-color: #26111a;
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 25%;
+    text-align: center;
+}
+nav .massage{
+    font-size: 10px;
+    margin-top: 40px;
+}
+nav img{
+    margin-left: 2%;
+    height: 150px;
+    width: 100px;
+}
+nav a{
+    text-decoration:none;
+    color:#f2e2a7;
+    margin-top: 40px;
+}
+
+.redact{
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    border-bottom: solid 2px black;
+    
+}
+
+.col{
+    background-color: rgb(1, 227, 243);
+    color: rgb(1, 53, 53);
+    border: solid 1px rgba(0, 104, 104, 0.397);
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 40px;
+    font-size: 24px;
+    width: 900px;
+}
+
+.filters__img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .filters__img img {
+    width: initial;
+    height: 100%;
+  }
+  
+
+
+
+
+
+/*----------------JS--------------------*/
+
+
+
+footer{
+    padding: 30px 0;
+    background-color: #26111a;
+}
+
+
+
+
+.find{
+    
+    background-color: #f2e2a7;
+    border-bottom: solid 2px black;
+}
+
+.order{
+    
+    background-color: #f2e2a7;
+}
