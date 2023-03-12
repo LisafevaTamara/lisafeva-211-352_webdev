@@ -1,0 +1,185 @@
+nav{
+    display:flex;
+    flex-basis: auto;
+    justify-content: space-between;
+}
+
+.text{
+    flex-grow: 3;
+    color:#eea69a;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 180%;
+}
+
+header{
+    border-bottom: 5px solid #eea69a ;
+    padding: 10px;
+}
+
+.links{
+    display: flex;
+    padding-top: 10px;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+/* основная часть */
+main{
+    margin: 10px;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333a57;
+    font-weight: bold;
+   
+}
+/* первый блок */
+.first{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 50px;
+}
+.firstblock{
+    width: 100%;
+    height: 400px;
+    border-radius: 0%;
+    position: relative;
+    left: 0;
+    border-radius:20px 20px 40px 40px;
+}
+.box-1{
+    background-color: #eea69a;
+    padding: 20px;
+    max-width: 86%;
+    border-radius: 40px;
+    position: absolute;
+    text-align: center;
+}
+
+.second{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 50px;
+}
+.secondblock{
+    width: 100%;
+    height: 400px;
+    border-radius: 0%;
+    position: relative;
+    left: 0;
+    border-radius:20px 20px 40px 40px;
+}
+.box-2{
+    background-color: #eea69a;
+    padding: 20px;
+    max-width: 86%;
+    border-radius: 40px;
+    position: absolute;
+    text-align: center;
+}
+
+
+.third{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 50px;
+}
+.thirdblock{
+    width: 100%;
+    height: 400px;
+    border-radius: 0%;
+    position: relative;
+    left: 0;
+    border-radius:20px 20px 40px 40px ;
+}
+.box-3{
+    background-color: #eea69a;
+    padding: 20px;
+    text-align: center;
+    max-width: 86%;
+    border-radius: 40px;
+    position: absolute;
+}
+
+
+img{
+    border-radius: 100px;
+    width: 80px;
+    height:80px;
+}
+
+
+body{
+    background-color: #333a57;
+}
+
+
+/* страницы */
+
+.cont{
+    display: flex;
+    margin: 20px;
+}
+.pic1{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    margin-left: 10%;
+}
+
+.tex1{
+    flex-basis: 50%;
+    background-color: #eea69a;
+    border-radius: 0 20px 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333a57;
+    font-weight: bold;
+    padding: 20px;
+    line-height: 1.2;
+}
+.cont2{
+    display: flex;
+    margin: 10px;
+}
+.pic2{
+    width: 90%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    
+}
+.tex2{
+    margin-left: 5%;
+    flex-basis: 45%;
+    background-color: #eea69a;
+    border-radius: 20px 0 0 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333a57;
+    font-weight: bold;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+.pictures{
+    display: flex;
+    justify-content: space-around;
+}
+.pic{
+    border-radius: 0;
+    height: 100%;
+    flex-basis: 19%;
+    
+}
+h3{
+    margin: 0 60px 10px ;
+    background-color: #eea69a;
+    border-radius: 20px ;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333a57;
+    font-weight: bold;
+    padding: 10px;
+
+}

@@ -1,0 +1,81 @@
+body, main {
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game {
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+#board {
+    height: 300px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cell {
+    border: 3px dotted rgb(255, 152, 216);
+    font-size: 70px;
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    float: left;
+    color:rgb(247, 151, 239);
+}
+
+.title{
+    background-color: lavender;
+    border-radius: 10px;
+    letter-spacing: 10px;
+    font-style: italic;
+    color:rgb(221, 141, 214);
+} 
+.new-game-btn {
+    color:rgb(221, 141, 214);
+    padding: 10px;
+    border: 0;
+    background-color: lavender;
+    border-radius: 50px;
+}
+
+img{
+    height:50px;
+    width: 50px;
+    border-radius: 50px;
+}
+.msg {
+    width: 350px;
+    margin: 10px auto;
+    border: 2px solid transparent;
+    padding: 10px;
+}
+
+.success {
+    letter-spacing: 10px;
+    font-style: italic;
+    border: 0;
+    border-radius: 10px;
+    color:rgb(221, 141, 214);
+    background-color: lavender;
+}
+
+.danger {
+    letter-spacing: 10px;
+    font-style: italic;
+    font-weight: bold;
+    border: 0;
+    border-radius: 10px;
+    color:rgb(221, 141, 214);
+    background-color: rgb(241, 185, 196);
+}

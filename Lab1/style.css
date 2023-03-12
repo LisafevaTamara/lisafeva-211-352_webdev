@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+
+}
+
+
+
+.header {
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    color: black;
+    padding: 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "PT Sans";
+    margin-top: 10;
+    background-image: url(img/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+
+}
+
+
+.main-menu li {
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.main-menu li:last-child {
+    margin-right: 0;
+
+}
+
+.main-menu a {
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    color:black;
+    font-weight: 300;
+
+}
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+    font-family: "PT Sans";
+    
+}
+
+p {
+    text-align: justify;
+
+}
+
+.footer{
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 3px solid black;
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.big{
+    font-size: 18px;
+}
+
+.big2{
+    font-size: 24px;
+}
+
+.cat{
+    border-radius: 50%;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    position:relative;
+}
+
+.parag{
+    text-align: center;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.hea{
+    margin-bottom: 5px;
+}
+th{
+    border-bottom:3px solid black;
+}
+table{
+    position: relative;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
