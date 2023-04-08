@@ -1,0 +1,48 @@
+body > *:not(main) {
+    display: none;
+}
+
+/* основная часть */
+main{
+    font-size: 10px;
+    text-align: center;
+}
+
+.pic1{
+    margin-left: 0;
+    border-radius: 0;
+}
+.pic2{
+    border-radius: 0;
+}
+h3 {
+    page-break-before: always;
+}
+.firstblock{
+    border-radius: 0;
+}
+.box-1{
+    padding: 0;
+    max-width: 82%;
+    border-radius: 0;
+    padding-top: 10px;
+}
+
+.secondblock{
+    border-radius: 0;
+}
+.box-2{
+    padding: 0;
+    max-width: 82%;
+    border-radius: 0;
+    padding-top: 10px;
+}
+.thirdblock{
+    border-radius: 0;
+}
+.box-3{
+    padding: 0;
+    max-width: 82%;
+    border-radius: 0;
+    padding-top: 10px;
+}
