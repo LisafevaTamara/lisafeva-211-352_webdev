@@ -7,6 +7,7 @@ function massage() {
     let elem = document.getElementById("divmassage");
     let mass = document.createElement("p");
     let balv = document.getElementById("balv");
+    try{
     balv.remove();
     mass.setAttribute("id", "mass");
     balv.innerHTML = "Сообщений пока нет";
@@ -19,6 +20,10 @@ function massage() {
         mass.remove();
         close.remove();
     }, 10000);
+    }catch(err){
+        alert("Ошибка сообщения")
+    }
+
 }
 
 //Пагинация
@@ -64,39 +69,90 @@ function pageButtons(stateWrapper, pages, state) {
     console.log("Pages:", pages);
     var maxLeft = state.page - Math.floor(state.window / 2);
     var maxRight = state.page + Math.floor(state.window / 2);
-    if (maxLeft < 1) {
-        maxLeft = 1;
-        maxRight = state.window;
-    }
-    if (maxRight > pages) {
-        maxLeft = pages - (state.window - 1);
+    try{
         if (maxLeft < 1) {
             maxLeft = 1;
+            maxRight = state.window;
         }
-        maxRight = pages;
+        if (maxRight > pages) {
+            maxLeft = pages - (state.window - 1);
+            if (maxLeft < 1) {
+                maxLeft = 1;
+            }
+            maxRight = pages;
+        }
+        for (var page = maxLeft; page <= maxRight; page++) {
+            wrapper.innerHTML += 
+            `<button value=${page} class="page btn
+            btn-sm btn-light">${page}</button>`;
+        }
+        if (state.page != 1) {
+            wrapper.innerHTML =
+                `<button value=${1} class="page btn
+                btn-sm btn-light">&#171; First</button>` +
+                wrapper.innerHTML;
+        }
+        if (state.page != pages) {
+            wrapper.innerHTML += 
+            `<button value=${pages} class="page btn btn-sm
+            btn-light">Last &#187;</button>`;
+        }
+        //Очистка страницы
+        $(".page").on("click", function () {
+            $(state.table).empty();
+            state.page = Number($(this).val());
+            state.get_API();
+        });
+    }catch(err){
+        alert("Ошибка пагинации")
     }
-    for (var page = maxLeft; page <= maxRight; page++) {
-        wrapper.innerHTML += 
-		`<button value=${page} class="page btn
-		btn-sm btn-light">${page}</button>`;
+}
+
+function pageButtonGuide(stateWrapper, pages, state) {
+    var wrapper = document.getElementById(stateWrapper);
+    wrapper.innerHTML = ``;
+    console.log("Pages:", pages);
+    var maxLeft = state.page - Math.floor(state.window / 2);
+    var maxRight = state.page + Math.floor(state.window / 2);
+    try{
+        if (maxLeft < 1) {
+            maxLeft = 1;
+            maxRight = state.window;
+        }
+        if (maxRight > pages) {
+            maxLeft = pages - (state.window - 1);
+            if (maxLeft < 1) {
+                maxLeft = 1;
+            }
+            maxRight = pages;
+        }
+        for (var page = maxLeft; page <= maxRight; page++) {
+            wrapper.innerHTML += 
+            `<button value=${page} class="page btn
+            btn-sm btn-light">${page}</button>`;
+        }
+        if (state.page != 1) {
+            wrapper.innerHTML =
+                `<button value=${1} class="page btn
+                btn-sm btn-light">&#171; First</button>` +
+                wrapper.innerHTML;
+        }
+        if (state.page != pages) {
+            wrapper.innerHTML += 
+            `<button value=${pages} class="page btn btn-sm
+            btn-light">Last &#187;</button>`;
+        }
+        //Очистка страницы
+        $(".page").on("click", function () {
+            
+            state.page = 1;
+            // $(state.table).empty();
+            state.get_API();
+            $(state.table).empty();
+        });
+    }catch(err){
+        alert("Ошибка пагинации")
     }
-    if (state.page != 1) {
-        wrapper.innerHTML =
-			`<button value=${1} class="page btn
-			btn-sm btn-light">&#171; First</button>` +
-			wrapper.innerHTML;
-    }
-    if (state.page != pages) {
-        wrapper.innerHTML += 
-		`<button value=${pages} class="page btn btn-sm
-		btn-light">Last &#187;</button>`;
-    }
-    //Очистка страницы
-    $(".page").on("click", function () {
-        $(state.table).empty();
-        state.page = Number($(this).val());
-        state.get_API();
-    });
 }
 
 //Поиск по списку маршрутов
@@ -110,26 +166,31 @@ var state1 = {
     selected: 0,
     get_API:
 		function get_tour_API() {
+            
 		    var data = pagination(state1.querySet, state1.page, state1.rows);
 		    var myList = data.querySet;
 		    console.log(myList);
 		    let list = document.querySelector(state1.table);
 		    var key = 1;
-		    for (key in myList) {
-		        list.innerHTML += `<tr>
-								<th scope="row">${myList[key].id - 1}</th>
-								<td>${myList[key].name}</td>
-								<td>${myList[key].description}</td>
-								<td>${myList[key].mainObject}</td>
-								<td>
-								<button type="button"
-								class="btn btn-light btn-tour"
-								onclick="select_draw(this, ${myList[key].id})" >
-								Выбрать</button>
-								</td>
-							</tr>`;
-		    }
-		    pageButtons(state1.stateWrapper, data.pages, state1);
+            try{
+                for (key in myList) {
+                    list.innerHTML += `<tr>
+                                    <th scope="row">${myList[key].id - 1}</th>
+                                    <td>${myList[key].name}</td>
+                                    <td>${myList[key].description}</td>
+                                    <td>${myList[key].mainObject}</td>
+                                    <td>
+                                    <button type="button"
+                                    class="btn btn-light btn-tour"
+                                    onclick="select_draw(this, ${myList[key].id})" >
+                                    Выбрать</button>
+                                    </td>
+                                </tr>`;
+                }
+                pageButtons(state1.stateWrapper, data.pages, state1);
+            }catch(err){
+                alert("Ошибка поиска")
+            }
 		}
 };
 
@@ -149,47 +210,56 @@ var state2 = {
 		    console.log(myList);
 		    let list = document.querySelector(state2.table);
 		    var key = 1;
-		    for (key in myList) {
-		        list.innerHTML += `<tr>
-								<th scope="row">${myList[key].id}</th>
-								<td>${myList[key].name}</td>
-								<td>${myList[key].language}</td>
-								<td>${myList[key].workExperience} лет</td>
-								<td>${myList[key].pricePerHour} рублей</td>
-								<td>
-								<button type="button" class="btn btn-light
-								btn-guides"onclick = "selectGuide
-								(this, ${myList[key].id})" selected = "false">
-								Выбрать</button>
-								</td>
-							</tr>`;
-		    }
-		    pageButtons(state2.stateWrapper, data.pages, state2);
+            try{
+                for (key in myList) {
+                    list.innerHTML += `<tr>
+                                    <th scope="row">${myList[key].id}</th>
+                                    <td>${myList[key].name}</td>
+                                    <td>${myList[key].language}</td>
+                                    <td>${myList[key].workExperience} лет</td>
+                                    <td>${myList[key].pricePerHour} рублей</td>
+                                    <td>
+                                    <button type="button" class="btn btn-light
+                                    btn-guides"onclick = "selectGuide
+                                    (this, ${myList[key].id})" selected = "false">
+                                    Выбрать</button>
+                                    </td>
+                                </tr>`;
+                }
+                pageButtonGuide(state2.stateWrapper, data.pages, state2);
+            }catch(err){
+                alert("Ошибка поиска")
+            }
 		}
 };
 
-let tour = get_tour();
+
 
 //Кнопочки, когда выбираем маршрут,тур
 function select_draw(el, id) {
+    let tour = get_tour();
     let all = document.querySelectorAll(".btn-tour");
-    for (let i = 0; i < all.length; i++) {
-        all[i].innerHTML = "Выбрать";
-    }
-    el.innerHTML = "Выбрано!";
-    let tourName = document.querySelector("#tour-name");
-    for (var i = 0; i < tour.length; i++) {
-        if (tour[i]["id"] == id) {
-            tourName.innerHTML = " " + tour[i].name;
-            state2.querySet = get_guides(id);
-            state1.selected = id;
-            state2.get_API();
-            break;
+    try{
+        for (let i = 0; i < all.length; i++) {
+            all[i].innerHTML = "Выбрать";
         }
+        el.innerHTML = "Выбрано!";
+        let tourName = document.querySelector("#tour-name");
+        for (var i = 0; i < tour.length; i++) {
+            if (tour[i]["id"] == id) {
+                tourName.innerHTML = " " + tour[i].name;
+                state2.querySet = get_guides(id);
+                state1.selected = id;
+                state2.get_API();
+                break;
+            }
+        }
+    }catch(err){
+        alert("Ошибка при выборе!")
     }
 }
 
-//Кнопочки, когда выбираем гида
+//Кнопочки, для выбора гида
 function selectGuide(el, id) {
     let all = document.querySelectorAll(".btn-guides");
     for (let i = 0; i < all.length; i++) {
@@ -218,46 +288,55 @@ function makeRequest() {
     isItMorning = false;
     isItEvening = false;
     console.log(routeName);
-    for (var i = 0; i < state2.querySet.length; i++) {
-        if (state2.querySet[i]["id"] == state2.selected) {
-            console.log(state2.querySet[i]["id"]);
-            console.log(state2.selected);
-            guideName.innerHTML = state2.querySet[i].name;
-            total = state2.querySet[i].pricePerHour;
-            console.log(total);
-            break;
+    try{
+        for (var i = 0; i < state2.querySet.length; i++) {
+            if (state2.querySet[i]["id"] == state2.selected) {
+                console.log(state2.querySet[i]["id"]);
+                console.log(state2.selected);
+                guideName.innerHTML = state2.querySet[i].name;
+                total = state2.querySet[i].pricePerHour;
+                console.log(total);
+                break;
+            }
         }
-    }
-    for (var i = 0; i < state1.querySet.length; i++) {
-        if (state1.querySet[i]["id"] == state1.selected) {
-            console.log(state1.querySet[i]["id"]);
-            console.log(state1.selected);
-            routeName.innerHTML = state1.querySet[i].name;
-            break;
+        for (var i = 0; i < state1.querySet.length; i++) {
+            if (state1.querySet[i]["id"] == state1.selected) {
+                console.log(state1.querySet[i]["id"]);
+                console.log(state1.selected);
+                routeName.innerHTML = state1.querySet[i].name;
+                break;
+            }
         }
+    }catch(err){
+        alert("Ошибка! Не удалось создать заявку")
     }
+
 }
 
 //Сохранение запроса
 function saveRequest() {
     var data = new FormData();
-    data.append('date', dataInput.value);
-    data.append('duration', duration.selectedIndex + 1);
-    data.append('guide_id', 'place');
-    data.append('id', 'key');
-    data.append('optionFirst', 'person');
-    data.append('optionSecond', 'password');
-    data.append('persons', 'place');
-    data.append('price', 'key');
-    data.append('route_id', 'person');
-    data.append('student_id', 'password');
-    data.append('time', 'place');
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", TOUR_API, false); 
-    xhr.send();
-    if (xhr.status != 200) {
-        alert(xhr.status + ": " + xhr.statusText);
-    } else {
-        return JSON.parse(xhr.responseText);
+    try{
+        data.append('date', dataInput.value);
+        data.append('duration', duration.selectedIndex + 1);
+        data.append('guide_id', 'place');
+        data.append('id', 'key');
+        data.append('optionFirst', 'person');
+        data.append('optionSecond', 'password');
+        data.append('persons', 'place');
+        data.append('price', 'key');
+        data.append('route_id', 'person');
+        data.append('student_id', 'password');
+        data.append('time', 'place');
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", TOUR_API, false); 
+        xhr.send();
+        if (xhr.status != 200) {
+            alert(xhr.status + ": " + xhr.statusText);
+        } else {
+            return JSON.parse(xhr.responseText);
+        }
+    }catch(err){
+        alert("Ошибка сохранения")
     }
 }
